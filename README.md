@@ -148,9 +148,11 @@ except Exception as e:
 
 #### notify_error: Automated email report for use in exception catch. 
 ```python
-def default_table_style(df):
+def default_table_style(df, index: False):
     """ Apply a default clean table style to pandas df.to_html() for use in email strings.
 
+    :param index: Determines whether you want index displayed in the HTML. Defaults to False.
+    :type index: Boolean
     :param df: Dataframe to apply the style to.
     :type df: Pandas Dataframe
     :return: HTML string for insertion in email.
@@ -163,14 +165,13 @@ from outlookutility import default_table_style
 import pandas as pd 
 import numpy as np
 df = pd.DataFrame(np.random.randint(0,100,size=(15, 4)), columns=list('ABCD'))
-html_df_string = default_table_style(df)
-#Example in email string
 test_message = f"""
 <HTML>
     <BODY>
-     {html_df_string}
+     {default_table_style(df,index=False)}
      <br>
     </BODY>
 </HTML>
 """
+
 ```
