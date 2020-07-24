@@ -146,7 +146,7 @@ except Exception as e:
 
 
 
-#### notify_error: Automated email report for use in exception catch. 
+#### default_table_style : Apply formatting to Pandas dataframe for use in email
 ```python
 def default_table_style(df, index: False):
     """ Apply a default clean table style to pandas df.to_html() for use in email strings.
@@ -169,6 +169,39 @@ test_message = f"""
 <HTML>
     <BODY>
      {default_table_style(df,index=False)}
+     <br>
+    </BODY>
+</HTML>
+"""
+
+```
+
+#### multi_table_style : Apply formatting to multiple Pandas dataframes for use in email
+```python
+def multi_table_style(df_list, index: False):
+    """ Apply a default clean table style to pandas df.to_html() for use in email strings.
+    This version returns multiple tables stacked on top of each other with a line break inbetween.
+
+    :param index: Determines whether you want index displayed in the HTML. Defaults to False.
+    :type index: Boolean
+    :param df_list: List of dataframes to return in html format.
+    :type df: Pandas Dataframe
+    :return: HTML string for insertion in email.
+    :rtype: string
+    """
+```
+##### Example Call
+```python
+from outlookutility import multi_table_style
+import pandas as pd 
+import numpy as np
+df = pd.DataFrame(np.random.randint(0,100,size=(15, 4)), columns=list('ABCD'))
+df_list = [df,df]
+formatted_tables = multi_table_style(df_list,index=False)
+test_message = f"""
+<HTML>
+    <BODY>
+     {formatted_tables}
      <br>
     </BODY>
 </HTML>

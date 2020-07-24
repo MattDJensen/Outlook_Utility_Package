@@ -1,18 +1,19 @@
 import pandas as pd
 
 
-def default_table_style(df, index: False):
+def multi_table_style(df_list, index: False):
     """ Apply a default clean table style to pandas df.to_html() for use in email strings.
+    This version returns multiple tables stacked on top of each other with a line break inbetween.
 
     :param index: Determines whether you want index displayed in the HTML. Defaults to False.
     :type index: Boolean
-    :param df: Dataframe to apply the style to.
+    :param df_list: List of dataframes to return in html format.
     :type df: Pandas Dataframe
     :return: HTML string for insertion in email.
     :rtype: string
     """
     if index:
-        df = (
+        html_string = (
             """
                 <head>
                     <style>
@@ -35,10 +36,12 @@ def default_table_style(df, index: False):
                     </style>
                 </head>
                 """
-            + df.to_html()
         )
+        for i in df_list:
+            html_string = html_string + i.to_html() + "<br/> <br/>"
     else:
-        df = """
+        html_string = (
+            """
                 <head>
                     <style>
                         table.dataframe {
@@ -59,7 +62,9 @@ def default_table_style(df, index: False):
                     }
                     </style>
                 </head>
-                """ + df.to_html(
-            index=False
+                """
         )
-    return df
+        for i in df_list:
+            html_string = html_string + i.to_html(index=False) + "<br/> <br/>"
+
+    return html_string

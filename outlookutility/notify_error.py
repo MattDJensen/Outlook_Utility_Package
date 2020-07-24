@@ -28,7 +28,7 @@ def notify_error(report_name, error_log, to_list: str):
     new_mail.To = to_list
     index = new_mail.HTMLbody.find(">", new_mail.HTMLbody.find("<body"))
     new_mail.HTMLbody = (
-            new_mail.HTMLbody[: index + 1] + message + new_mail.HTMLbody[index + 1:]
+        new_mail.HTMLbody[: index + 1] + message + new_mail.HTMLbody[index + 1 :]
     )
     # noinspection PyStatementEffect
     new_mail.send
