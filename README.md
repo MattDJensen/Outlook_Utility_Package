@@ -168,6 +168,8 @@ df = pd.DataFrame(np.random.randint(0,100,size=(15, 4)), columns=list('ABCD'))
 test_message = f"""
 <HTML>
     <BODY>
+     Email Text Here
+     <br>
      {default_table_style(df,index=False)}
      <br>
     </BODY>
@@ -175,6 +177,135 @@ test_message = f"""
 """
 
 ```
+### Example Output
+<HTML>
+    <BODY>
+    <p>Email Text Here</p>
+    <head>
+        <style>
+            table.dataframe {
+                border-collapse: collapse;
+            }
+            table.dataframe th{
+                border: 1px solid black;
+                padding: 10px;
+                font-size:14px;
+                text-align: center;
+            }
+            table.dataframe td {
+                border: 1px solid black;
+                padding: 10px;
+                font-size:12px;
+                text-align: center;
+            }
+        }
+        </style>
+    </head>
+    <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>28</td>
+      <td>37</td>
+      <td>9</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>21</td>
+      <td>72</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>42</td>
+      <td>52</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>41</td>
+      <td>94</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>37</td>
+      <td>6</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>7</td>
+      <td>72</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>85</td>
+      <td>49</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>29</td>
+      <td>36</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>88</td>
+      <td>40</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>96</td>
+      <td>59</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>53</td>
+      <td>10</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>26</td>
+      <td>87</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>16</td>
+      <td>79</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>0</td>
+      <td>39</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>14</td>
+      <td>50</td>
+      <td>69</td>
+    </tr>
+  </tbody>
+</table>
+     <br>
+    </BODY>
+</HTML>
 
 #### multi_table_style : Apply formatting to multiple Pandas dataframes for use in email
 ```python
@@ -201,6 +332,8 @@ formatted_tables = multi_table_style(df_list,index=False)
 test_message = f"""
 <HTML>
     <BODY>
+     Email Text Here
+     <br>
      {formatted_tables}
      <br>
     </BODY>
@@ -208,3 +341,233 @@ test_message = f"""
 """
 
 ```
+### Example Output
+<HTML>
+    <BODY>
+     <p> Email Text Here </p>
+<head>
+    <style>
+        table.dataframe {
+            border-collapse: collapse;
+        }
+        table.dataframe th{
+            border: 1px solid black;
+            padding: 10px;
+            font-size:14px;
+            text-align: center;
+        }
+        table.dataframe td {
+            border: 1px solid black;
+            padding: 10px;
+            font-size:12px;
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>28</td>
+      <td>32</td>
+      <td>58</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>37</td>
+      <td>89</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>12</td>
+      <td>21</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>26</td>
+      <td>86</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>62</td>
+      <td>46</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>8</td>
+      <td>63</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>8</td>
+      <td>71</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>14</td>
+      <td>88</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>11</td>
+      <td>69</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>84</td>
+      <td>12</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>60</td>
+      <td>77</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>22</td>
+      <td>97</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>27</td>
+      <td>26</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>4</td>
+      <td>62</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>99</td>
+      <td>71</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table><br/> <br/><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>28</td>
+      <td>32</td>
+      <td>58</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>37</td>
+      <td>89</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>12</td>
+      <td>21</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>26</td>
+      <td>86</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>62</td>
+      <td>46</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>8</td>
+      <td>63</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>8</td>
+      <td>71</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>14</td>
+      <td>88</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>11</td>
+      <td>69</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>84</td>
+      <td>12</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>60</td>
+      <td>77</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>22</td>
+      <td>97</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>27</td>
+      <td>26</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>4</td>
+      <td>62</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>99</td>
+      <td>71</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table><br/> <br/>
+     <br>
+    </BODY>
+</HTML>
